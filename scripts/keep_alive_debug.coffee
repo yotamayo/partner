@@ -54,7 +54,7 @@ module.exports = (robot) ->
       now = new Date()
       nowOffset    = 60 * now.getHours() + now.getMinutes()
 
-      if(wakeUpOffset >= sleepOffset) #Sleeps overnight? Like 22:00 to 6:00
+      if(wakeUpOffset < sleepOffset) #Sleeps overnight? Like 22:00 to 6:00
         isNotSleeping = nowOffset <= wakeUpOffset && nowOffset < sleepOffset
       else #Sleeps during day? Like 01:00 to 07:00  ## 949(nowoffset) 735 (wakeUpOffset) (12:15)  365 (sleepOffset) (6:05)
         isNotSleeping = nowOffset >= wakeUpOffset && nowOffset > sleepOffset
