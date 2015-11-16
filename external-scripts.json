@@ -8,6 +8,6 @@
   "hubot-maps",
   "hubot-redis-brain",
   "hubot-rules",
-  "hubot-shipit",
-  "hubot-heroku-keepalive"
+  "hubot-shipit"
+#  "hubot-heroku-keepalive" ## Using modified custom version 
 ]
