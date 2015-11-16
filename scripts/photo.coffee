@@ -24,4 +24,5 @@ photos = [
 
 module.exports = (robot) ->
 	robot.hear /(.*)(photo|image|photoshoot|mugshot|portrait|pose)(.*)/i, (msg) ->
-			msg.send msg.random 'This is a beautiful photo of Frederic Bouchard Wong : ' + photos
+  robot.hear /(.*)(consultant)(.*)/i, (msg) ->
+			msg.send 'This is a beautiful photo of Frederic Bouchard Wong : ' + msg.random photos
