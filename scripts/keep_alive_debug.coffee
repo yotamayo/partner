@@ -55,9 +55,11 @@ module.exports = (robot) ->
       nowOffset    = 60 * now.getHours() + now.getMinutes()
 
       if(wakeUpOffset < sleepOffset) #Sleeps overnight? Like 22:00 to 6:00
-        isNotSleeping = nowOffset <= wakeUpOffset && nowOffset < sleepOffset
+        robot.logger.info "Wake up before sleep offset"
+        isNotSleeping = nowOffset >= wakeUpOffset && nowOffset < sleepOffset
       else #Sleeps during day? Like 01:00 to 07:00  ## 949(nowoffset) 735 (wakeUpOffset) (12:15)  365 (sleepOffset) (6:05)
-        isNotSleeping = nowOffset >= wakeUpOffset && nowOffset > sleepOffset
+        robot.logger.info "Wake up after sleep offset"
+        isNotSleeping = nowOffset < sleepOffset || nowOffset > wakeUpOffset
 
       if (isNotSleeping)
         robot.logger.info "Attempt to keep alive. #{nowOffset} #{wakeUpOffset} (#{process.env.HUBOT_HEROKU_WAKEUP_TIME})  #{sleepOffset} (#{process.env.HUBOT_HEROKU_SLEEP_TIME})"
