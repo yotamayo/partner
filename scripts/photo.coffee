@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 photos = [
 	"http://www.fredericwong.com/css/images/archive/Frederic_332.jpg",
 	"http://www.fredericwong.com/css/images/archive/Frederic_090.jpg",
